@@ -4,8 +4,8 @@ spring:
     profiles:
       active: localhost
 
-server:
-  port: 8761
+#server:
+ # port: 8761
 
 ---
 spring:
@@ -20,13 +20,13 @@ spring:
 eureka:
   instance:
     appname: eureka-server
-    hostname: localhost
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+ #   hostname: localhost
+ #   instance-id: ${spring.cloud.client.ip-address}:${server.port}
+ # client:
+ #   register-with-eureka: false
+ #   fetch-registry: false
+ #   service-url:
+ #     default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
 
     healthcheck:
       enabled: true

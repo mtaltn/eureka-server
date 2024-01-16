@@ -6,7 +6,8 @@ spring:
 
 ---
 spring:
-  profiles: localhost
+  profiles:
+    active: localhost
   cloud:
     config:
       uri: http://localhost:8888
@@ -14,24 +15,20 @@ spring:
       label: main
 
 eureka:
-  instance:
-    appname: eureka-server
-      # hostname: localhost
-      #prefer-ip-address: true
-      #client:
-      # register-with-eureka: false
-      #fetch-registry: false
-      #service-url:
-    # default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
 
-  #server:
-  # port: 8761
+logging:
+  level:
+    root: debug
 ---
 spring:
-  profiles: stage
+  profiles:
+    active: stage
   cloud:
     config:
-      uri: http://config-server:8888
+      uri: http://localhost:8888
       fail-fast: true
       label: main
 
@@ -45,3 +42,7 @@ eureka:
     fetch-registry: false
     service-url:
       default-zone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+logging:
+  level:
+    root: debug
