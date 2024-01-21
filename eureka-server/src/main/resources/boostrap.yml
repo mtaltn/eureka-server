@@ -6,8 +6,9 @@ spring:
 
 ---
 spring:
-  profiles:
-    active: localhost
+  config:
+    activate:
+      on-profiles: localhost
   cloud:
     config:
       uri: http://localhost:8888
@@ -24,8 +25,9 @@ logging:
     root: debug
 ---
 spring:
-  profiles:
-    active: stage
+  config:
+    activate:
+      on-profiles: stage
   cloud:
     config:
       uri: http://localhost:8888
